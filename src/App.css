@@ -1,0 +1,116 @@
+@media(prefers-color-scheme: dark){
+    body{
+        background-color: rgb(15, 18, 20);
+        color: rgb(255, 255, 255);
+    }
+}
+
+#root{
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    column-gap: 12px;
+}
+
+.home{
+    display: grid;
+    grid-template-columns: 1, max-content;
+    column-gap: 12px;
+    min-height: 100vh;
+}
+
+.sidebar{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid white;
+    width: max-content;
+    min-height: 100vh;
+}
+
+.sidebar > h1{
+    font-size: 1em;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.sidebar > ul{
+    padding-left: 10px;
+    margin-top: 0px;
+}
+
+.item{
+    list-style-type: none;
+    font-size: 1.2em;
+    border: 1px solid white;
+    margin: 15px 5px 15px 5px;
+}
+
+.statcard{
+    height: max-content;
+    width: max-content;
+    border: 1px solid white;
+    padding: 5px 10px 5px 10px;
+}
+.statcard > h1{
+    display: inline;
+    margin: 0px;
+}
+.statcard > h2{
+    margin: 0px;
+}
+.statcard > p{
+    display: inline;
+}
+
+.chartsContainer{
+    display: flex;
+}
+
+.subsChartCard{
+    width: 500px;
+}
+
+.revenueChartCard{
+    width: 500px;
+}
+
+.statBar{
+    display: flex;
+    flex-direction: row;
+    column-gap: 12px;
+    height: max-content;
+}
+
+.projectsSummary{
+    display: flex;
+    width: max-content;
+}
+
+table {
+    table-layout: fixed;
+    width: max-content;
+}
+
+th {
+    width: 200px;
+}
+
+td{
+    overflow: hidden;
+    
+    white-space: nowrap;
+}
+
+tr {
+    height: 50px;
+}
+.projectHistoryCard{
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+    align-items: center;
+}
+
+.newProjectModal{
+    display: flex;
+    flex-direction: column;
+}
