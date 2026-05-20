@@ -9,9 +9,13 @@ function App() {
   
   const [currentPage, setCurrentPage] = useState("calendar")
 
+  function handleSidebarClick(page){
+    setCurrentPage(page)
+  }
+
   return (
     <>
-      <Sidebar/>
+      <Sidebar handleSidebarClick={handleSidebarClick}/>
       {currentPage ==="home" && <Home></Home>}
       {currentPage ==="projects" && <Projects></Projects>}
       {currentPage ==="calendar" && <Calendar></Calendar>}
