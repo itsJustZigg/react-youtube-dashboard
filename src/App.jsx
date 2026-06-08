@@ -7,15 +7,18 @@ import Calendar from './pages/calendar'
 
 function App() {
   
-  const [currentPage, setCurrentPage] = useState("calendar")
+  const [currentPage, setCurrentPage] = useState("home")
 
   function handleSidebarClick(page){
     setCurrentPage(page)
   }
 
+  
+
   return (
     <>
-      <Sidebar handleSidebarClick={handleSidebarClick}/>
+      <Sidebar currentPage={currentPage}
+      handleSidebarClick={handleSidebarClick}/>
       {currentPage ==="home" && <Home></Home>}
       {currentPage ==="projects" && <Projects></Projects>}
       {currentPage ==="calendar" && <Calendar></Calendar>}

@@ -1,14 +1,20 @@
 import { useState } from "react"
 import { Chart as ChartJS, plugins, Legend, Title, BarElement, ArcElement} from "chart.js"
 import { Bar , Doughnut} from 'react-chartjs-2'
+import  Button  from "@mui/material/Button"
+import AddIcon from '@mui/icons-material/Add';
+import EditIcon from '@mui/icons-material/Edit';
 
 
 ChartJS.register(BarElement, ArcElement, Title, Legend)
 
 function NewProjectBtn({handleClick}){
-    return<><button onClick={handleClick}>+ Create New Project</button></>
+    return<><Button 
+    sx={{ backgroundColor: 'var(--accent)'}}
+    variant="contained" 
+    startIcon={<AddIcon />} 
+    onClick={handleClick}>Create New Project</Button></>
 }
-
 
 
 function BarChartCard(){
@@ -33,6 +39,7 @@ function BarChartCard(){
 
     const options={
         responsive: true,
+        maintainAspectRatio: false,
         plugins: {
             title: {
                 display: true,
@@ -59,9 +66,9 @@ function DonutChartCard(){
                 label: "Tasks Per Day",
                 data: [250, 150, 108, 75],
                 backgroundColor: [
-                    'rgb(255, 99, 132)',
-                    'rgb(54, 162, 235)',
-                    'rgb(255, 205, 86)',
+                    'rgb(18, 36, 235)',
+                    'rgb(137, 146, 236)',
+                    'rgb(51, 163, 190)',
                     'rgb(65, 255, 182)'
                 ],
             }]
@@ -69,9 +76,11 @@ function DonutChartCard(){
 
     const options={
         responsive: true,
+        maintainAspectRatio:false,
         plugins: {
             legend:{
                 position: "bottom",
+                align: 'start',
             },
             title: {
                 display: true,
@@ -103,10 +112,10 @@ function ProjectsTable({tableData, handleOpenModal}){
             </thead>
             <tbody>
                 {tableData.map((project) => (
-                    <tr key={project.id}>
-                        <td onClick={() => handleOpenModal(project.id)}>{project.projectName}</td>
+                    <tr onClick={() => handleOpenModal(project.id)} key={project.id}>
+                        <td >{project.projectName}</td>
                         <td>{project.members}</td>
-                        <td>{project.completion}</td>
+                        <td><progress value={Number(project.completion.slice(0, project.completion.length - 1))} max={100}></progress>{project.completion}</td>
                     </tr>
                 ))}
             </tbody>
@@ -115,39 +124,58 @@ function ProjectsTable({tableData, handleOpenModal}){
     )
 }
 
-function ProjectModal({foundProject}){
+function ProjectModal({handleCloseModal, foundProject}){
     return(
-        <div className="projectModal">
-            <h1>Title:</h1>
-            <h2>{foundProject.projectName}</h2><button>Edit</button>
-            <h1>Thumbnail:</h1>
-            <img></img><button>Add/Change Image</button>
-            <h1>Video Summary:</h1>
-            <p>There is one video game that Epic Games created in 2009 called The Adventures of Blabbity Bla: Return to the Land of Blabbity Bla.
-                They hired 13 programmers, 10 voice actors, 4 animators, and sunk $1,000,000 into it. Everything was going good until somebody opened their email
-                and accidentally unleashed a virus that deleted all the progress they had. 
-            </p><button>Edit Summary</button>
-            <p>Team Members: {foundProject.members}</p>
+        <div className="modal-overlay" onClick={handleCloseModal}>
+            <div className="modal" onClick={(e) => e.stopPropagation()}>
+                <h1>Title:</h1>
+                <h2>{foundProject.projectName}</h2><EditIcon></EditIcon>
+                <h1>Thumbnail:</h1>
+                <img></img><Button variant="contained">Add/Change Image</Button>
+                <h1>Video Summary:</h1>
+                <p>There is one video game that Epic Games created in 2009 called The Adventures of Blabbity Bla: Return to the Land of Blabbity Bla.
+                    They hired 13 programmers, 10 voice actors, 4 animators, and sunk $1,000,000 into it. Everything was going good until somebody opened their email
+                    and accidentally unleashed a virus that deleted all the progress they had.
+                </p><EditIcon></EditIcon>
+                <p>Team Members: {foundProject.members}</p>
+            </div>
         </div>
     )
 }
 
-function NewProjectModal({handleProjectForm}){
+function NewProjectModal({handleCloseNewProjectModal, handleProjectForm}){
     return(
-        <div className="newProjectModal">
-            <form onSubmit={handleProjectForm}>
-                <label htmlFor="title">Title</label>
-                <input id="title" name="title" type="text" placeholder="Please type in the title of your video"></input>
-                <label htmlFor="thumbnail">Add a thumbnail Image</label>
-                <input id="thumbnail" type="file" name="thumbnail" accept="image/png, image/jpeg" />
-                <label htmlFor="summary">Video Summary</label>
-                <textarea id="summary" name="summary" placeholder="Write a 2-3 sentence summary to tell everyone what your video is about"></textarea>
-                <label htmlFor="members">Team Members</label>
-                <input id="members" type="text" name="members" placeholder="Which team members will you assign this project to"></input>
-                <label htmlFor="dueDate">Due Date:</label>
-                <input type="date" id="dueDate" name="dueDate"></input>
-                <button type="submit">Add to projects table</button>
-            </form>
+        <div className="modal-overlay" onClick={handleCloseNewProjectModal}>
+            <div className="modal" onClick={(e) => e.stopPropagation()}>
+                <form onSubmit={handleProjectForm}>
+                    <h1>Title: </h1>
+                    <input 
+                    onClick={(e) => e.stopPropagation()}
+                    id="title" 
+                    name="title" type="text" 
+                    placeholder="Please type in the title of your video"></input>
+                    <h1>Add a Thumbnail Image</h1>
+                    <input 
+                    onClick={(e) => e.stopPropagation()}
+                    id="thumbnail" type="file" name="thumbnail" accept="image/png, image/jpeg" />
+                    <h1>Video Summary</h1>
+                    <textarea 
+                    onClick={(e) => e.stopPropagation()}
+                    id="summary" name="summary" placeholder="Write a 2-3 sentence summary to tell everyone what your video is about"></textarea>
+                    <h1>Team Members</h1>
+                    <input 
+                    onClick={(e) => e.stopPropagation()}
+                    id="members" type="text" name="members" placeholder="Which team members will you assign this project to"></input>
+                    <h1>Due Date:</h1>
+                    <input 
+                    onClick={(e) => e.stopPropagation()}
+                    type="date" id="dueDate" name="dueDate"></input>
+                    <Button 
+                    onClick={(e) => e.stopPropagation()}
+                    sx={{ backgroundColor: 'var(--accent)', margin:'var(--spacing-md'}}
+                    variant="contained" type="submit">Save Project</Button>
+                </form>
+            </div>
         </div>
     )
 }
@@ -174,22 +202,19 @@ export default function Projects(){
 
     function handleOpenModal(id){
         setFoundProject(tableData.find(project => project.id === id))
+        setisModalOpen(true)
+    }
 
-        if(isModalOpen === true){
-            setisModalOpen(false)
-        }
-        else if(isModalOpen === false){
-            setisModalOpen(true)
-        }
+    function handleCloseModal(){
+        setisModalOpen(false)
     }
 
     function handleNewProjectClick(){
-        if(isNewProjectModalOpen === true){
-            setIsNewProjectModalOpen(false)
-        }
-        else if(isNewProjectModalOpen === false){
-            setIsNewProjectModalOpen(true)
-        }
+        setIsNewProjectModalOpen(true)
+    }
+
+    function handleCloseNewProjectModal(){
+        setIsNewProjectModalOpen(false)
     }
 
     function handleProjectForm(e){
@@ -212,11 +237,16 @@ export default function Projects(){
     return(
         <div className="projects-page">
             <NewProjectBtn handleClick={handleNewProjectClick}></NewProjectBtn>
-            <BarChartCard />
-            <DonutChartCard />
-            <ProjectsTable tableData={tableData} handleOpenModal={handleOpenModal}></ProjectsTable>
-            { isModalOpen === true && <ProjectModal foundProject={foundProject}></ProjectModal> }
-            { isNewProjectModalOpen === true && <NewProjectModal handleProjectForm={handleProjectForm}></NewProjectModal>}
+            <div className="project-charts-container">
+                <BarChartCard />
+                <DonutChartCard />
+            </div>
+            
+            <div className="project-table-container">
+                <ProjectsTable tableData={tableData} handleOpenModal={handleOpenModal}></ProjectsTable>
+            </div>
+            { isModalOpen === true && <ProjectModal handleCloseModal={handleCloseModal} foundProject={foundProject}></ProjectModal> }
+            { isNewProjectModalOpen === true && <NewProjectModal handleCloseNewProjectModal={handleCloseNewProjectModal} handleProjectForm={handleProjectForm}></NewProjectModal>}
         </div>
     )
 }

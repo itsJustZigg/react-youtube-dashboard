@@ -17,16 +17,17 @@ export default function Calendar(){
     return(
 
         <div className='schedules-container'>
-            <div style={{ height: 600, width: '100%', backgroundColor: "white"}}>
-                <EventCalendar
+            <div style={{ overflowY:'auto', width: '100%', backgroundColor: "#e2e8f0", color: "black", padding: "8px"}}>
+                <EventCalendar 
                 events={events}
+                views={['week', 'month']}
                 onEventsChange={setEvents}
                 defaultVisibleDate='2026-05-20T14:00:00'
                 />
             </div>
-            <div style={{ height: 500, width: 250, backgroundColor: "white"}}>
+            <div style={{overflowY:'auto', backgroundColor: "#e2e8f0", padding: "8px"}}>
                 <h1 style={{color: "black"}}>Today's Tasks</h1>
-                <StandaloneDayView
+                <StandaloneDayView 
                 events={todaysEvents}
                 onEventsChange={setTodaysEvents}></StandaloneDayView>
             </div>

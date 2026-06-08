@@ -6,7 +6,10 @@ import TimelineSeparator from '@mui/lab/TimelineSeparator';
 import TimelineConnector from '@mui/lab/TimelineConnector';
 import TimelineContent from '@mui/lab/TimelineContent';
 import TimelineDot from '@mui/lab/TimelineDot'
-
+import SubscriptionsOutlinedIcon from '@mui/icons-material/SubscriptionsOutlined';
+import PersonIcon from '@mui/icons-material/Person';
+import PaidIcon from '@mui/icons-material/Paid';
+import WatchLaterOutlinedIcon from '@mui/icons-material/WatchLaterOutlined';
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend)
 
@@ -19,6 +22,7 @@ function ChartsContainer({children}){
 function RevenueChartCard(){
     const options={
         responsive: true,
+        maintainAspectRatio: false,
         plugins: {
             legend:{
                 position: "bottom",
@@ -53,6 +57,7 @@ function SubsChartCard(){
     
     const options={
         responsive: true,
+        maintainAspectRatio: false,
         plugins: {
             legend:{
                 position: "bottom",
@@ -90,10 +95,12 @@ function StatBar({children}){
     )
 }
 
-function StatCard({name, stat, statGrowth}){
+function StatCard({name, stat, statGrowth, children}){
     return(
         <div className="statcard">
-        <h2>{name}</h2>
+        <div className="statcard-header">
+            <h2>{name}</h2>{children}
+        </div>
         <h1>{stat}</h1><p>{statGrowth}</p>
         </div>
     )
@@ -115,7 +122,8 @@ function ProjectsTable(){
     ]
     
     return(
-        <>
+        <div className="projectstable-container">
+        <h2>Recent Projects</h2>
         <table>
             <thead>
                 <tr>
@@ -129,19 +137,19 @@ function ProjectsTable(){
                     <tr key={project.id}>
                         <td>{project.projectName}</td>
                         <td>{project.members}</td>
-                        <td>{project.completion}</td>
+                        <td><progress value={Number(project.completion.slice(0, project.completion.length - 1))} max={100}></progress>{project.completion}</td>
                     </tr>
                 ))}
             </tbody>
         </table>
-        </>
+        </div>
     )
 }
 
 function ProjectHistoryCard({children}){
     return(
         <div className="projectHistoryCard">
-            <h1 className="prHistoryHeading">Project History</h1>
+            <h2 className="prHistoryHeading">Project History</h2>
             {children}
         </div>
     )
@@ -181,10 +189,10 @@ export default function Home(){
     return(
         <div className="home">
         <StatBar>
-            <StatCard name="Subscribers" stat="25,937" statGrowth="+235"/>
-            <StatCard name="Revenue" stat="$18,233" statGrowth="+$1,300"/>
-            <StatCard name="Views" stat="130,000" statGrowth="+22,500" />
-            <StatCard name="Watch time (hours)" stat="30.5k" statGrowth="+2.5k" />
+            <StatCard name="Subscribers" stat="25,937" statGrowth="+235"><SubscriptionsOutlinedIcon/></StatCard>
+            <StatCard name="Revenue" stat="$18,233" statGrowth="+$1,300"><PaidIcon/></StatCard>
+            <StatCard name="Views" stat="130,000" statGrowth="+22,500"><PersonIcon/></StatCard>
+            <StatCard name="Watch time (hours)" stat="30.5k" statGrowth="+2.5k"><WatchLaterOutlinedIcon/></StatCard>
         </StatBar>
         <ChartsContainer>
             <SubsChartCard />
