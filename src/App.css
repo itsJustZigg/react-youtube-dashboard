@@ -39,23 +39,9 @@
     
 }
 
-/* :root{
-        --bg-primary: #0f1117 ;
-        --bg-surface: rgb(26, 29, 39);
-        --border: 1px solid rgb(46, 51, 71);
-        --spacing-sm: 8px;
-        --spacing-md: 16px;
-        --accent: rgb(62, 50, 233);
-        --fontsize-sm: 12pt;   
-    } */
-
 #root{
     display: grid;
-    /* grid-template-columns: 220px 6fr; */
     grid-template-columns: 1fr;
-    /* grid-template-columns: max-content 6fr; */
-    /* height: 100dvh; */
-    /* column-gap: 12px; */
 }
 
 .home{
@@ -65,7 +51,6 @@
 
 .schedules-container{
     min-width: 0;
-    /* max-width: 1000px; */
     display: grid;
     grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
     column-gap: var(--spacing-sm);
@@ -76,7 +61,6 @@
     position: fixed;
     z-index: 999;
     top:0;
-    /* align-self: start; */
     display: flex;
     flex-direction: column;
     width: 200px;
@@ -86,7 +70,6 @@
 }
 
 .sidebar-close{
-    /* position: sticky; */
     position: fixed;
     top:0;
     align-self: start;
@@ -106,7 +89,6 @@
     justify-content: center;
     min-width: 0;
     margin-top: var(--spacing-sm);
-    /* margin-right: 8px; */
     margin-bottom: var(--spacing-sm);
 }
 
@@ -115,14 +97,12 @@
 }
 
 .logo-container > h1{
-    /* display: inline; */
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     flex-shrink: 1;
     min-width: 0;
     font-size: 1.2rem;
-    /* font-size: clamp(0.75rem, 2cqi, 1.2rem); */
     margin-left: 5px;
     margin-right: 5px;
 }
@@ -163,16 +143,11 @@
 }
 
 .statcard{
-    /* height: max-content;
-    width: max-content; */
-
     flex: 1 1 auto;
     border-radius: 8px;
     border: var(--border);
     padding: var(--spacing-sm);
     background-color: var(--bg-surface);
-    /* background-color: rgb(26, 29, 39); */
-    /* margin-right: var(--spacing-sm); */
 }
 
 .statcard:last-child{
@@ -198,7 +173,6 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: minmax(400px, auto);
-    /* width: 100%; */
     gap: var(--spacing-sm);
 }
 
@@ -213,21 +187,14 @@
 }
 
 .subsChartCard{
-    /* height: 100%;
-    width: 100%; */
     min-width: 0;
-    /* flex: 1 1 0; */
-    /* margin-right: var(--spacing-sm); */
     border: var(--border);
     padding: var(--spacing-sm);
     background-color: var(--bg-surface);
 }
 
 .revenueChartCard{
-    /* height: 100%;
-    width: 100%; */
     min-width: 0;
-    /* flex: 1 1 0; */
     border: var(--border);
     padding: var(--spacing-sm);
     background-color: var(--bg-surface);
@@ -251,7 +218,6 @@
 }
 
 .project-table-container{
-    /* min-width: 700px; */
     overflow-x: auto;
     width: 100%;
     margin-top: var(--spacing-sm);
@@ -259,11 +225,9 @@
 
 table {
     table-layout: fixed;
-    /* display: block; */
     border-collapse: collapse;
     background-color: var(--bg-surface);
     border: var(--border);
-    /* overflow-x: auto; */
     text-overflow: ellipsis;
     white-space: nowrap;
     width: 100%;
@@ -271,22 +235,13 @@ table {
 
 }
 
-.projectsSummary > table{
-    /* flex-grow: 0; */
-}
 
 tbody tr:nth-child(odd){
     background-color: var(--table-stripe);
 }
 
-th {
-    /* width: 230px; */
-    /* padding: 0.6em; */
-}
-
 td{
     overflow: hidden;
-    /* overflow-x: auto; */
     text-overflow: ellipsis;
     padding: 0.6em;
 }
@@ -314,7 +269,6 @@ td:nth-child(3){
 }
 
 .donutChartCard{
-    /* aspect-ratio: 1/1; */
     background-color: var(--bg-surface);
     border: var(--border);
     padding: var(--spacing-sm);
@@ -329,16 +283,13 @@ td:nth-child(3){
 .project-charts-container{
     display: grid;
     column-gap: var(--spacing-sm);
-    /* height: 400px; */
     grid-template-rows: 400px;
     grid-template-columns: minmax(0, 3fr) minmax(0, 1fr);
-    /* grid-template-columns: 3fr 1fr; */
     min-width: 0;
     margin-top: var(--spacing-sm);
 }
 .projectHistoryCard{
     display: flex;
-    /* flex-grow: 1; */
     flex-direction: column;
     width: max-content;
     align-items: center;
@@ -407,8 +358,6 @@ td:nth-child(3){
 
 @media screen and (max-width: 900px){
     .project-charts-container{
-        /* height: 200px; */
-        /* grid-template-rows: 200px; */
         grid-template-columns: minmax(0, 1fr);
         row-gap: var(--spacing-sm);
     }
