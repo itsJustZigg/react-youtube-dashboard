@@ -1,16 +1,44 @@
-# React + Vite
+<h1 align="center">Project Name: YouTube Manager Dashboard</h1>
+<img width="1920" height="945" alt="yt-dashboard-homepage" src="https://github.com/user-attachments/assets/e0eb3b05-eb95-4a65-bf72-752917c9745d" />
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Overview
+YouTube Manager Dashboard is a convenient and intuitive video production management dashboard built with Chart.js and React, designed to streamline YouTube production workflows. YouTube Manager dashboard allows for users to easily create, delete, view, and manage YouTube projects. 
 
-Currently, two official plugins are available:
+# Features 
+- YouTube KPI's: View YouTube analytics such as subscribers, view count, and revenue to give you daily insights on your Youtube channel's performance.
+- Project Progress: Get an overview of each project's progress to see which projects are completed, under review or in-progress
+- Project Scheduling: Manage and view project deadlines to keep you and your team on track for your next upload
+- Responsive Design: YouTube Manager dashboard works seamlessly across desktop, tablet, and mobile devices
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+# Tech Stack
+- React.js: A JavaScript library for component based user interfaces
+- Chart.js: A JavaScript library that provides frequently used charts such as line, bar, doughnut, and more to give developers the ability to integrate those chart types with their web application 
+- Vite: A frontend build tool for bundling JavaScript ES modules 
+- Material UI: A library for React components such as icons, buttons, charts, modals, etc.
 
-## React Compiler
+# Getting Started 
+To get a local version of this project up and running, follow these steps: 
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+# Prerequisites
+- Node.js (24.0.0 and above) and npm for package management and running scripts
 
-## Expanding the ESLint configuration
+# Installation
+1. Clone the repository
+```
+git clone https://github.com/itsJustZigg/react-youtube-dashboard
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+2. Install dependencies
+   ```
+   npm install
+   ```
+
+3. Start the development server:
+   ```
+   npm run dev
+   ```
+
+# Usage
+Running the web app
+- Development Mode: ```npm run dev```
+> Open http://localhost:5173/ to view the app in your browser
