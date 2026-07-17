@@ -36,13 +36,13 @@ export default function Sidebar({currentPage, handleSidebarClick}){
                {sidebarClassName === "sidebar-open" && <h1>YT Project Manager</h1>}<MenuOutlinedIcon onClick={handleSidebarClose}/>
             </div>
         <ul>
-            <div className={currentPage === "home" ? 'sidebar-item-container-selected':'sidebar-item-container'} onClick={() => handleSidebarClick("home")}>
+            <div className={currentPage === "Home" ? 'sidebar-item-container-selected':'sidebar-item-container'} onClick={() => handleSidebarClick("Home")}>
                 <HomeIcon sx={{margin: "15px 5px 15px 5px"}}/>{ sidebarClassName === "sidebar-open" && <SidebarItem title="Home"/> }
             </div>
-            <div className={currentPage === "projects" ? 'sidebar-item-container-selected':'sidebar-item-container'} onClick={() => handleSidebarClick("projects")}>
+            <div className={currentPage === "Projects" ? 'sidebar-item-container-selected':'sidebar-item-container'} onClick={() => handleSidebarClick("Projects")}>
                 <WorkIcon sx={{margin: "15px 5px 15px 5px"}}/>{ sidebarClassName === "sidebar-open" && <SidebarItem handleSidebarClick={handleSidebarClick} title="Projects"/> }
             </div>
-            <div className={currentPage === "calendar" ? 'sidebar-item-container-selected':'sidebar-item-container'} onClick={() => handleSidebarClick("calendar")}>
+            <div className={currentPage === "Calendar" ? 'sidebar-item-container-selected':'sidebar-item-container'} onClick={() => handleSidebarClick("Calendar")}>
                 <CalendarMonthIcon sx={{margin: "15px 5px 15px 5px"}}/>{ sidebarClassName === "sidebar-open" && <SidebarItem handleSidebarClick={handleSidebarClick} title="Calendar"/> }
             </div>
             <div className='sidebar-item-container'>
