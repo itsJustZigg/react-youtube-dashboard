@@ -180,23 +180,23 @@ function NewProjectModal({handleCloseNewProjectModal, handleProjectForm}){
     )
 }
 
-export default function Projects(){
+export default function Projects({tableData}){
 
     const [isModalOpen, setisModalOpen] = useState(false)
     const [isNewProjectModalOpen, setIsNewProjectModalOpen] = useState(false)
 
-    const [tableData, setTableData] = useState([ 
-        {id: 1, projectName: 'The Game that Lost Epic $1,000,000', members: ["John ", "Rich ", "Mary ", "Bob"], completion: "50%"},
-        {id: 2, projectName: "Walking Across the Solar System in No Mans Sky", members: ["Alex ", "Jimmy ", "Greg ", "Troy"], completion: "12%"},
-        {id: 3, projectName: "Epic We Need to Talk", members: ["Jake ", "Justin ", "Kowalski ", "Alisson"], completion: "100%"},
-        {id: 4, projectName: "Droid Tycoon Droid Duplication Glitch", members: ["Sam ", "Caden ", "Abraham"], completion: "25%"},
-        {id: 5, projectName: "Droid Tycoon is Hiding this From You", members:["Jack ", "Jill"], completion: "45%"},
-        {id: 6, projectName: "Sick of Brainrot Games, Play This Instead", members:["Benjamin ", "Jason ", "Clark ", "Donald"], completion: "15%"},
-        {id: 7, projectName: "Droid Tycoon is Hiding this From You", members:["Jack ", "Jill"], completion: "45%"},
-        {id: 8, projectName: "Droid Tycoon Mr Bones Event is Here!", members:["Quentin ", "Michael ", "Hassan ", "Julia"], completion: "89%"},
-        {id: 9, projectName: "I Turned My House into a Swimming Pool", members:["Ryan ", "Andrew ", "Kaleb ", "Ava ", "Craig ", "Gillian"], completion: "5%"},
-        {id: 10, projectName: "I Coded Minecraft to Be More Satisfying", members:["Talia ", "Killian ", "George"], completion: "11%"}
-    ])
+    // const [tableData, setTableData] = useState([ 
+    //     {id: 1, projectName: 'The Game that Lost Epic $1,000,000', members: ["John ", "Rich ", "Mary ", "Bob"], completion: "50%"},
+    //     {id: 2, projectName: "Walking Across the Solar System in No Mans Sky", members: ["Alex ", "Jimmy ", "Greg ", "Troy"], completion: "12%"},
+    //     {id: 3, projectName: "Epic We Need to Talk", members: ["Jake ", "Justin ", "Kowalski ", "Alisson"], completion: "100%"},
+    //     {id: 4, projectName: "Droid Tycoon Droid Duplication Glitch", members: ["Sam ", "Caden ", "Abraham"], completion: "25%"},
+    //     {id: 5, projectName: "Droid Tycoon is Hiding this From You", members:["Jack ", "Jill"], completion: "45%"},
+    //     {id: 6, projectName: "Sick of Brainrot Games, Play This Instead", members:["Benjamin ", "Jason ", "Clark ", "Donald"], completion: "15%"},
+    //     {id: 7, projectName: "Droid Tycoon is Hiding this From You", members:["Jack ", "Jill"], completion: "45%"},
+    //     {id: 8, projectName: "Droid Tycoon Mr Bones Event is Here!", members:["Quentin ", "Michael ", "Hassan ", "Julia"], completion: "89%"},
+    //     {id: 9, projectName: "I Turned My House into a Swimming Pool", members:["Ryan ", "Andrew ", "Kaleb ", "Ava ", "Craig ", "Gillian"], completion: "5%"},
+    //     {id: 10, projectName: "I Coded Minecraft to Be More Satisfying", members:["Talia ", "Killian ", "George"], completion: "11%"}
+    // ])
 
     const [foundProject, setFoundProject] = useState(null)
 

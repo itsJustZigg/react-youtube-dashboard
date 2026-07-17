@@ -112,14 +112,15 @@ function ProjectsSummaryCard({children}){
     )
 }
 
-function ProjectsTable(){
-    const data =[ 
-        {id: 1, projectName: 'The Game that Lost Epic $1,000,000', members: ["John ", "Rich ", "Mary ", "Bob"], completion: "50%"},
-        {id: 2, projectName: "Walking Across the Solar System in No Mans Sky", members: ["Alex ", "Jimmy ", "Greg ", "Troy"], completion: "12%"},
-        {id: 3, projectName: "Epic We Need to Talk", members: ["Jake ", "Justin ", "Kowalski ", "Alisson"], completion: "100%"},
-        {id: 4, projectName: "Droid Tycoon Droid Duplication Glitch", members: ["Sam ", "Caden ", "Abraham"], completion: "25%"},
-        {id: 5, projectName: "Droid Tycoon is Hiding this From You", members:["Jack ", "Jill"], completion: "45%"}
-    ]
+function ProjectsTable({tableData}){
+    // const data =[ 
+    //     {id: 1, projectName: 'The Game that Lost Epic $1,000,000', members: ["John ", "Rich ", "Mary ", "Bob"], completion: "50%"},
+    //     {id: 2, projectName: "Walking Across the Solar System in No Mans Sky", members: ["Alex ", "Jimmy ", "Greg ", "Troy"], completion: "12%"},
+    //     {id: 3, projectName: "Epic We Need to Talk", members: ["Jake ", "Justin ", "Kowalski ", "Alisson"], completion: "100%"},
+    //     {id: 4, projectName: "Droid Tycoon Droid Duplication Glitch", members: ["Sam ", "Caden ", "Abraham"], completion: "25%"},
+    //     {id: 5, projectName: "Droid Tycoon is Hiding this From You", members:["Jack ", "Jill"], completion: "45%"}
+    // ]
+    const recentProjects = tableData.filter(project => project.id < 6)
     
     return(
         <div className="projectstable-container">
@@ -133,7 +134,7 @@ function ProjectsTable(){
                 </tr>
             </thead>
             <tbody>
-                {data.map((project) => (
+                {recentProjects.map((project) => ( 
                     <tr key={project.id}>
                         <td>{project.projectName}</td>
                         <td>{project.members}</td>
@@ -184,7 +185,7 @@ function ProjectHistoryTimeline(){
     )
 }
 
-export default function Home(){
+export default function Home({tableData}){
 
     return(
         <div className="home">
@@ -199,7 +200,7 @@ export default function Home(){
             <RevenueChartCard />
         </ChartsContainer>
         <ProjectsSummaryCard>
-            <ProjectsTable></ProjectsTable>
+            <ProjectsTable tableData={tableData}></ProjectsTable>
             <ProjectHistoryCard>
                 <ProjectHistoryTimeline></ProjectHistoryTimeline>
             </ProjectHistoryCard>
