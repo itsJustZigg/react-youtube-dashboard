@@ -3,11 +3,11 @@ import ThemeSelector from "./themeSelector";
 
 
 
-export default function Header({pageHeader}){
+export default function Header({handleOpenModal, tableData, pageHeader}){
     return (
         <div className="header">
             <h2>{pageHeader}</h2>
-            <SearchBar />
+            <SearchBar handleOpenModal={handleOpenModal} tableData={tableData}/>
             <ThemeSelector />
         </div>
     )
